@@ -17,7 +17,7 @@ import { ArrowRight } from 'lucide-react';
  * 5. Todos los registros llegarán a tu correo Y quedarán guardados en el
  *    dashboard de Formspree (formspree.io/forms) por si quieres exportarlos.
  */
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TU_ID_DE_FORMSPREE';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdaryzoy';
 
 function QuieroInvertir({ variant = 'hero' }) {
   const [email, setEmail] = useState('');
