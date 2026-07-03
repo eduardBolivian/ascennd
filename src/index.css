@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --fondo: 0 0% 0%;
+  --primer-plano: 0 0% 100%;
+  --primaria: 38 92% 50%;
+  --secundario: 0 0% 20%;
+  --silenciado: 0 0% 40%;
+  --borde: 0 0% 15%;
+  --ring: 38 92% 50%;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ---------- Glass utility ---------- */
+.vidrio-liquido {
+  position: relative;
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vidrio-liquido::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes movingDot {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(4900%); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes marqueeSlow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-moving-dot {
+  animation: movingDot 3s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marqueeSlow 22s linear infinite;
+}
+
+/* Hide scrollbar on marquee track without hiding page scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
